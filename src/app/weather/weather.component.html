@@ -1,0 +1,441 @@
+<!-- <div class="mycontainer">
+    <form class="row mt-5" >
+      
+      <div class="col-auto">
+        <label for="city">Enter City :</label>
+        <input type="text" class="form-control" id="city"  [(ngModel)]="city">
+      </div>
+      <div class="col-auto">
+        <button   class="btn btn-info text-white mb-3" (click)="searchWeatherData()"> Get Info</button>
+      </div>
+  
+      <div class="col-auto">
+        <button type="button" class="btn btn-info text-white mb-3" > Get For 5 Days</button>
+      </div>
+    </form>
+  
+      <div class="card text-white bg-info m-3" style="max-width: 18rem;">
+          <div class="card-header text-center">
+            <h2>{{ weatherData.name }}</h2>
+            <p><img src="{{ iconURL }}" alt="condition"></p>
+          </div>
+          
+  
+          <div class="card-body">
+            <p class="card-text">Condition : {{ https://api.openweathermap.org/data/2.5/forecast?q='+this.city+'&appid=497f10c1dcc68ec711f711cdb33b00f6&units=imperial }}</p>
+            <p class="card-text">Temperature : {{ weatherData.main.temp }} °F</p>
+            <p class="card-text">Pressure : {{ weatherData.main.pressure }} hPa</p>
+            <p class="card-text">Humidity : {{ weatherData.main.humidity }} %</p>
+           
+          </div>
+        </div>
+  </div> -->
+
+<!-- <div class="mycontainer">
+  <input type="text" name="a" id="a" placeholder="City Name" [(ngModel)]="city">
+  <button class="btn btn-info" (click)="searchWeatherData()">get info</button>
+  <button class="btn btn-primary" (click)="searchFor5Days()">5</button> -->
+
+<!-- <div class="card text-white bg-info m-3" style="max-width: 18rem;">
+    <div class="card-header text-center">
+      <h2>{{ weatherData.name }}</h2>
+      
+    </div>
+    
+    <div class="card-body">
+      <p><img class="text-center" src="{{ iconURL }}" alt="condition"></p>
+      <p class="card-text">Condition : {{ weatherData.weather[0].description }}</p>
+      <p class="card-text">Temperature : {{ weatherData.main.temp }} °F</p>
+      <p class="card-text">Pressure : {{ weatherData.main.pressure }} hPa</p>
+      <p class="card-text">Humidity : {{ weatherData.main.humidity }} %</p>
+     
+    </div>
+  </div> -->
+
+
+<!-- <div class="card text-white bg-info m-3" style="max-width: 18rem;">
+  <div class="card-header text-center">
+    <h2>{{ weatherData.name }}</h2>
+    
+  </div>
+  
+  <div class="card" *ngFor="let data of finalDatas">
+    <p><img class="text-center" src="{{ iconURL5 }}" alt="condition"></p>
+    <p class="card-text">Condition : {{ data.weather[0].description }}</p>
+    <p class="card-text">Temperature : {{ data.main.temp }} °F</p>
+    <p class="card-text">Pressure : {{ data.main.pressure }} hPa</p>
+    <p class="card-text">Humidity : {{ data.main.humidity }} %</p>
+   
+  </div>
+</div>
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
+    />
+
+    <title>NODE FARM</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5rem 5rem 10rem;
+        line-height: 1.7;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #555;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+      }
+
+      h1 {
+        font-family: 'Megrim', sans-serif;
+        font-size: 6rem;
+        color: white;
+        transform: skewY(-5deg);
+        text-align: center;
+        position: relative;
+        word-spacing: 3px;
+      }
+
+      h1::before {
+        content: '';
+        display: block;
+        height: 65%;
+        width: 49%;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        opacity: 0.8;
+        z-index: -1;
+        transform: skewY(370deg) translate(-50%, -50%);
+      }
+
+      .container {
+        width: 95rem;
+        margin: 0 auto;
+      }
+
+      .cards-container {
+        margin-top: 8rem;
+      }
+
+      .card {
+        background: white;
+        box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+        margin-bottom: 5rem;
+        transform: skewX(-20deg);
+        display: flex;
+        transition: all 0.5s;
+      }
+
+      .card__emoji {
+        font-size: 5.5rem;
+        line-height: 1.2;
+        padding: 1.5rem 6rem 0.5rem 1.5rem;
+        letter-spacing: -4rem;
+        transform: skewX(20deg);
+      }
+
+      .card__title-box {
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        padding: 0 3rem;
+      }
+
+      .card__title {
+        font-family: 'Megrim', sans-serif;
+        color: white;
+        font-size: 3.25rem;
+        transform: skewX(20deg);
+      }
+
+      .card__details {
+        display: flex;
+      }
+
+      .card__detail-box {
+        align-self: stretch;
+        border-right: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+      }
+
+      .card__detail-box:last-child {
+        border: none;
+      }
+
+      .card__detail {
+        font-weight: 400;
+        font-size: 1.8rem;
+        transform: skewX(20deg);
+        padding: 1.75rem;
+      }
+
+      .card__detail--organic {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 1.9rem;
+        background-image: linear-gradient(to right, #9be15d, #00e3ae);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .card__detail--price {
+        font-weight: 900;
+        font-size: 1.9rem;
+      }
+
+      .card__link:link,
+      .card__link:visited {
+        flex: 0 0 auto;
+        background-color: #79e17b;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 2.5rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .card__link:hover,
+      .card__link:active {
+        background-color: #9be15d;
+      }
+
+      .card__link span {
+        transform: skewX(20deg);
+      }
+
+      .card:hover {
+        transform: skewX(-20deg) scale(1.08);
+        box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+      }
+
+      .emoji-left {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+
+      .emoji-right {
+        font-size: 2rem;
+        margin-left: 1rem;
+      }
+
+      .not-organic {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <input type="text" name="a" id="a" placeholder="City Name" [(ngModel)]="city">
+    <button class="btn btn-info" (click)="searchWeatherData()">get info</button>
+    <button class="btn btn-primary" (click)="searchFor5Days()">5</button>
+    <div class="container">
+      <h1>My weather App</h1>
+
+      <div class="cards-container">
+
+        <figure class="card" *ngFor="let data of finalDatas">
+          <div class="card__emoji"><img class="text-center" src="{{ iconURL5 }}" alt="condition"></div>
+
+          <div class="card__title-box">
+            <h2 class="card__title">{{ data.name }}</h2>
+          </div>
+
+          <div class="card__details">
+            <div class="card__detail-box">
+              <h6 class="card__detail card__detail--organic">{{ data.main.temp }} °F</h6>
+            </div>
+
+            <div class="card__detail-box">
+              <h6 class="card__detail">{{ data.main.pressure }} hPa</h6>
+            </div>
+
+            <div class="card__detail-box">
+              <h6 class="card__detail card__detail--price">{{ weatherData.weather[0].description }}</h6>
+            </div>
+          </div>
+
+          
+        </figure>
+
+        
+      </div>
+    </div>
+  </body>
+</html> -->
+
+<!-- <nav class="navbar g-4">
+  <div class="navbar-item m-4 ">
+    <input type="text" name="" id="" [(ngModel)]="city" placeholder="City Name">
+    <button type="button" (click)="searchWeatherData()">Get Info</button>
+    <button type="button" (click)="searchFor5Days()">Get For 5 Days</button>
+  </div>
+  
+</nav>
+
+<div class="container-fluid">
+  
+
+  <div class="card "  *ngIf="active">
+    <div class="card-header text-center">
+      <h2>{{weatherData.name}}</h2>
+      <p><img class="text-center" src="{{ iconURL }}" alt="condition"></p>
+    </div>
+
+    <div class="card-body text-center" >
+      <p>Condition : {{weatherData.weather[0].description}}</p>
+      <p>Temperature : {{weatherData.main.temp}}°C</p>
+      <p>Feels Like : {{ weatherData.main.feels_like }}°C</p>
+      <p>Pressure : {{ weatherData.main.pressure }} hPa</p>
+      <P>Humidity : {{ weatherData.main.humidity }} %</P>
+    </div>
+  </div>
+</div>
+  
+<div class="container d-flex d-row">
+  <div class="card"  *ngFor="let data of finalDatas" >
+    <div class="card-header text-center">
+      <h2>{{CityName.city.name}}</h2>
+      <p><img class="text-center" src="https://openweathermap.org/img/wn/{{data.weather[0].icon}}@2x.png" alt="condition"></p>
+    </div>
+
+    <div class="card-body text-center" >
+      <p>Condition : {{ data.weather[0].description }}</p>
+      <p>Temperature : {{ data.main.temp }} °C</p>
+      <p>Feels Like : {{ data.main.feels_like}} °C</p>
+      <p>Pressure : {{data.main.pressure}} hPa</p>
+      <P>Humidity : {{data.main.humidity}} %</P>  
+    </div>
+  </div>
+  
+</div> -->
+
+<!-- new design -->
+
+<div class="search">
+  <form >
+    <input type="text" name="city" placeholder="search city" [(ngModel)]="city">
+    <button type="button" (click)="searchWeatherData()">Get Info</button>
+    <button type="button" (click)="searchWeatherData()">Get 5 Days</button>
+  </form>
+</div>
+
+<div class="container mt-4"  >
+  <div class="upper-data">
+
+    <img src="../assets/blueSky.jpg" alt="">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="weather-data">
+          <div class="location">{{weatherData.name}}</div>
+          <div class="temperature">{{ weatherData.main.temp | number: '1.0-0' }} °C</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="weather-data">
+          <div class="mid">
+            <img src="{{iconURL}}" alt="">
+          </div>
+          <p>{{ weatherData.weather[0].main }}</p>
+          
+        </div>
+      </div>
+    </div>
+   
+
+
+  </div>
+
+  <!-- <img src="" alt=""> -->
+
+
+
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-label">
+          <i class="fa-solid fa-temperature-low"></i>
+          <span>Min</span>
+        </div>
+        <div class="info-value">
+          {{weatherData.main.temp_min | number: '1.0-0'}} °C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">
+          <i class="fa-solid fa-temperature-high"></i>
+          <span>Max</span>
+        </div>
+        <div class="info-value">
+          {{weatherData.main.temp_max | number: '1.0-0'}} °C
+        </div>
+      </div>
+      
+      <div class="info-block">
+        <div class="info-label">
+          <i class="fa-solid fa-droplet"></i>
+          <span>Humidity</span>
+        </div>
+        <div class="info-value">
+          {{weatherData.main.humidity}} %
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">
+          <i class="fa-solid fa-wind"></i>
+          <span>Wind</span>
+        </div>
+        <div class="info-value">
+          {{weatherData.wind.speed}} km/h
+        </div>
+      </div>
+
+      
+
+      
+    </div>
+  </div>
+
+
+</div>
